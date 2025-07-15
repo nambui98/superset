@@ -1,12 +1,7 @@
 import React from 'react';
-import {
-    Building2,
-    Link,
-    Link2,
-    RefreshCw,
-    TrendingUp,
-    Wallet,
-} from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Building2, Link2, RefreshCw, TrendingUp, Wallet } from 'lucide-react';
 
 export default function Traction() {
     return (
@@ -25,39 +20,61 @@ export default function Traction() {
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-                    <div className="glass-effect rounded-2xl p-6 text-center hover:scale-105 transform transition-all duration-300">
-                        <div className="flex justify-center mb-3">
-                            <Building2 className="w-8 h-8 text-curious-blue" />
+                    <div className="glass-effect flex flex-col items-center justify-center rounded-2xl p-6 text-center hover:scale-105 transform transition-all duration-300">
+                        <div className="flex h-10 w-20 justify-center mb-3  overflow-hidden relative">
+                            <Image
+                                src="/USDT0.webp"
+                                alt="USDT0"
+                                width={100}
+                                height={100}
+                                className="object-cover scale-150"
+                            />
                         </div>
-                        <h4 className="font-bold text-dark mb-2">
-                            USDT0 by Tether
-                        </h4>
                         <p className="text-sm text-gray-dark">
                             Base asset for all trading pairs
                         </p>
                     </div>
 
-                    <div className="glass-effect rounded-2xl p-6 text-center hover:scale-105 transform transition-all duration-300">
-                        <div className="flex justify-center mb-3">
-                            <Link className="w-8 h-8 text-curious-blue" />
+                    <div className="glass-effect flex flex-col items-center justify-center rounded-2xl p-6 text-center hover:scale-105 transform transition-all duration-300">
+                        <div className="flex h-10 justify-center mb-3 rounded-full">
+                            <Image
+                                src="/plasma.svg"
+                                alt="Plasma"
+                                width={100}
+                                height={100}
+                                className="object-contain"
+                            />
                         </div>
-                        <h4 className="font-bold text-dark mb-2">Plasma</h4>
                         <p className="text-sm text-gray-dark">
                             Dedicated stablecoin chain
                         </p>
                     </div>
 
-                    <div className="glass-effect rounded-2xl p-6 text-center hover:scale-105 transform transition-all duration-300">
-                        <div className="text-3xl mb-3">🇭🇰</div>
-                        <h4 className="font-bold text-dark mb-2">HKMA</h4>
+                    <div className="glass-effect flex flex-col items-center justify-center rounded-2xl p-6 text-center hover:scale-105 transform transition-all duration-300">
+                        <div className="flex h-10 justify-center mb-3 rounded-full">
+                            <Image
+                                src="/HKMA.png"
+                                alt="HKMA"
+                                width={100}
+                                height={100}
+                                className="object-contain"
+                            />
+                        </div>
                         <p className="text-sm text-gray-dark">
                             eHKD consortium partner
                         </p>
                     </div>
 
-                    <div className="glass-effect rounded-2xl p-6 text-center hover:scale-105 transform transition-all duration-300">
-                        <div className="text-3xl mb-3">🇬🇧</div>
-                        <h4 className="font-bold text-dark mb-2">ClearBank</h4>
+                    <div className="glass-effect flex flex-col items-center justify-center rounded-2xl p-6 text-center hover:scale-105 transform transition-all duration-300">
+                        <div className="flex h-10 justify-center mb-3 ">
+                            <Image
+                                src="/ClearBank.png"
+                                alt="ClearBank"
+                                width={100}
+                                height={100}
+                                className="object-contain"
+                            />
+                        </div>
                         <p className="text-sm text-gray-dark">
                             UK/Europe liquidity platform
                         </p>
@@ -120,42 +137,67 @@ export default function Traction() {
                 </h3>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div className="text-center">
-                        <div className="flex justify-center mb-4">
-                            <Link2 className="w-10 h-10 text-curious-blue " />
+                        <div className="flex items-center justify-center mb-4 h-10 overflow-hidden relative">
+                            <Link href="https://p2p.org/" target="_blank">
+                                <Image
+                                    src="/p2p.svg"
+                                    alt="P2P"
+                                    width={98}
+                                    height={20}
+                                />
+                            </Link>
                         </div>
-                        <h4 className="font-bold text-dark mb-2">P2P.org</h4>
                         <p className="text-sm text-gray-light">
                             Access to $6B staking investors for liquidity
                             commitment
                         </p>
                     </div>
                     <div className="text-center">
-                        <div className="flex justify-center mb-4">
-                            <Wallet className="w-10 h-10 text-curious-blue " />
+                        <div className="flex items-center justify-center mb-4 h-10 ">
+                            <Link href="https://metamask.io/" target="_blank">
+                                <Image
+                                    src="/metamask.svg"
+                                    alt="MetaMask"
+                                    width={80}
+                                    height={40}
+                                    className="object-contain"
+                                />
+                            </Link>
                         </div>
-                        <h4 className="font-bold text-dark mb-2">MetaMask</h4>
                         <p className="text-sm text-gray-light">
                             Virtual pool integration discussions with ConsenSys
                         </p>
                     </div>
                     <div className="text-center">
-                        <div className="flex justify-center mb-4">
-                            <RefreshCw className="w-10 h-10 text-curious-blue" />
+                        <div className="flex items-center justify-center mb-4 h-10 overflow-hidden relative">
+                            <Link href="https://li.fi/" target="_blank">
+                                <Image
+                                    src="/lifi.svg"
+                                    alt="LiFi"
+                                    width={100}
+                                    height={100}
+                                />
+                            </Link>
                         </div>
-                        <h4 className="font-bold text-dark mb-2">
-                            LiFi Protocol
-                        </h4>
                         <p className="text-sm text-gray-light">
                             Cross-chain aggregation and routing partnerships
                         </p>
                     </div>
                     <div className="text-center">
-                        <div className="flex justify-center mb-4">
-                            <TrendingUp className="w-10 h-10 text-curious-blue" />
+                        <div className="flex items-center justify-center mb-4 h-10  relative">
+                            <Link
+                                href="https://pendle.finance/"
+                                target="_blank"
+                            >
+                                <Image
+                                    src="/pendle.png"
+                                    alt="Pendle"
+                                    width={200}
+                                    height={200}
+                                    className="object-contain"
+                                />
+                            </Link>
                         </div>
-                        <h4 className="font-bold text-dark mb-2">
-                            Pendle Finance
-                        </h4>
                         <p className="text-sm text-gray-light">
                             Yield tokenization and DeFi protocol integrations
                         </p>
