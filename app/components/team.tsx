@@ -118,8 +118,13 @@ export default function Team() {
                     <div className="glass-effect rounded-3xl p-8 hover:scale-105 transform transition-all duration-300 border border-curious-blue/20">
                         <div className="flex items-start space-x-6">
                             <div className="w-24 h-24 rounded-full bg-gradient-to-r from-curious-blue via-curious-blue-light to-curious-blue-lighter p-1 flex-shrink-0">
-                                <div className="w-full h-full rounded-full flex items-center justify-center text-4xl relative">
-                                    <User className="size-12" />
+                                <div className="w-full h-full rounded-full bg-gray-dark flex items-center justify-center overflow-hidden relative">
+                                    <Image
+                                        src="/charles.jpg"
+                                        alt="Charles McManus"
+                                        className="w-full h-full object-cover filter grayscale"
+                                        fill
+                                    />
                                 </div>
                             </div>
                             <div className="flex-1">
