@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { User } from 'lucide-react';
+import { User, Building2, Shield } from 'lucide-react';
 
 export default function Team() {
     return (
@@ -122,7 +122,7 @@ export default function Team() {
                                     <Image
                                         src="/charles.jpg"
                                         alt="Charles McManus"
-                                        className="w-full h-full object-cover filter grayscale"
+                                        className="w-full h-full object-cover filter grayscale scale-140 translate-y-4"
                                         fill
                                     />
                                 </div>
@@ -152,7 +152,9 @@ export default function Team() {
                     </h3>
                     <div className="grid md:grid-cols-2 gap-6">
                         <div className="text-center">
-                            <div className="text-4xl mb-2">🏦</div>
+                            <div className="flex justify-center mb-2">
+                                <Building2 className="w-10 h-10 text-curious-blue" />
+                            </div>
                             <h4 className="font-bold text-dark">
                                 HSBC Global Head
                             </h4>
@@ -162,7 +164,9 @@ export default function Team() {
                             </p>
                         </div>
                         <div className="text-center">
-                            <div className="text-4xl mb-2">🔒</div>
+                            <div className="flex justify-center mb-2">
+                                <Shield className="w-10 h-10 text-curious-blue" />
+                            </div>
                             <h4 className="font-bold text-dark">Former CSO</h4>
                             <p className="text-sm text-gray-dark">
                                 Palo Alto Networks - security architecture and

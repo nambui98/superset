@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { submitContactForm } from '../action';
+import { DollarSign, Factory, TrendingUp } from 'lucide-react';
 
 interface FormData {
     name: string;
@@ -106,7 +107,9 @@ export default function Contact() {
 
                 <div className="grid lg:grid-cols-3 gap-8 mb-16">
                     <div className="glass-effect rounded-3xl p-8 text-center hover:scale-105 transform transition-all duration-300">
-                        <div className="text-5xl mb-4">🏭</div>
+                        <div className="flex justify-center mb-4">
+                            <Factory className="w-12 h-12 text-curious-blue" />
+                        </div>
                         <h3 className="text-xl font-bold text-dark mb-4">
                             For Issuers
                         </h3>
@@ -120,7 +123,9 @@ export default function Contact() {
                     </div>
 
                     <div className="glass-effect rounded-3xl p-8 text-center hover:scale-105 transform transition-all duration-300">
-                        <div className="text-5xl mb-4">💰</div>
+                        <div className="flex justify-center mb-4">
+                            <DollarSign className="w-12 h-12 text-curious-blue" />
+                        </div>
                         <h3 className="text-xl font-bold text-dark mb-4">
                             For LPs
                         </h3>
@@ -134,7 +139,9 @@ export default function Contact() {
                     </div>
 
                     <div className="glass-effect rounded-3xl p-8 text-center hover:scale-105 transform transition-all duration-300">
-                        <div className="text-5xl mb-4">📈</div>
+                        <div className="flex justify-center mb-4">
+                            <TrendingUp className="w-12 h-12 text-curious-blue" />
+                        </div>
                         <h3 className="text-xl font-bold text-dark mb-4">
                             For Traders
                         </h3>
@@ -163,7 +170,7 @@ export default function Contact() {
                             <div className="flex items-center space-x-3">
                                 <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
                                     <svg
-                                        className="w-5 h-5 text-primary"
+                                        className="w-5 h-5 text-curious-blue"
                                         fill="none"
                                         stroke="currentColor"
                                         viewBox="0 0 24 24"
@@ -184,7 +191,7 @@ export default function Contact() {
                             <div className="flex items-center space-x-3">
                                 <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
                                     <svg
-                                        className="w-5 h-5 text-primary"
+                                        className="w-5 h-5 text-curious-blue"
                                         fill="none"
                                         stroke="currentColor"
                                         viewBox="0 0 24 24"
@@ -211,7 +218,7 @@ export default function Contact() {
                             <div className="flex items-center space-x-3">
                                 <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
                                     <svg
-                                        className="w-5 h-5 text-primary"
+                                        className="w-5 h-5 text-curious-blue"
                                         fill="none"
                                         stroke="currentColor"
                                         viewBox="0 0 24 24"
