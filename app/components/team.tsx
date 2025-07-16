@@ -21,7 +21,7 @@ export default function Team() {
                 <div className="grid lg:grid-cols-2 gap-8 mb-16">
                     <div className="glass-effect rounded-3xl p-8 hover:scale-105 transform transition-all duration-300 border border-curious-blue/20">
                         <div className="flex items-start space-x-6">
-                            <div className="w-24 h-24 rounded-full bg-gradient-to-r from-curious-blue via-curious-blue-light to-curious-blue-lighter p-1 flex-shrink-0">
+                            <div className="w-24 h-24 rounded-full bg-curious-blue p-1 flex-shrink-0">
                                 <div className="w-full h-full rounded-full bg-gray-dark flex items-center justify-center overflow-hidden relative">
                                     <Image
                                         src="/charles.jpg"
@@ -183,7 +183,7 @@ export default function Team() {
                                     className="object-contain"
                                 />
                             </div>
-                            <h4 className="font-bold text-dark mb-2 flex-1">
+                            <h4 className="font-semibold text-sm text-dark mb-2 flex-1">
                                 HSBC Global Head of Technology Payments Division
                             </h4>
                             <p className="text-sm text-gray-dark">
@@ -200,7 +200,7 @@ export default function Team() {
                                     className="object-contain"
                                 />
                             </div>
-                            <h4 className="font-bold text-dark mb-2 flex-1">
+                            <h4 className="font-semibold text-sm text-dark mb-2 flex-1">
                                 Former CSO of Palo Alto Networks
                             </h4>
                             <p className="text-sm text-gray-dark">

@@ -117,7 +117,7 @@ export default function Contact() {
                             Deploy your stablecoin across all chains with
                             unified liquidity
                         </p>
-                        <button className="px-6 py-3 bg-gradient-to-r from-curious-blue via-curious-blue-light to-curious-blue-lighter text-primary font-semibold rounded-full hover:scale-105 transform transition-all duration-300 shadow-lg">
+                        <button className="px-6 py-3 bg-curious-blue text-dark font-semibold rounded-full hover:scale-105 transform transition-all duration-300 shadow-lg font-sans">
                             Deploy Token
                         </button>
                     </div>
@@ -133,7 +133,7 @@ export default function Contact() {
                             Earn 9% yield from trading fees with optimized
                             capital allocation
                         </p>
-                        <button className="px-6 py-3 bg-gradient-to-r from-curious-blue-light to-curious-blue text-primary font-semibold rounded-full hover:scale-105 transform transition-all duration-300 shadow-lg">
+                        <button className="px-6 py-3 bg-curious-blue text-dark font-semibold rounded-full hover:scale-105 transform transition-all duration-300 shadow-lg font-sans">
                             Provide Liquidity
                         </button>
                     </div>
@@ -149,7 +149,7 @@ export default function Contact() {
                             Access the deepest liquidity with minimal slippage
                             across all chains
                         </p>
-                        <button className="px-6 py-3 bg-gradient-to-r from-curious-blue-lighter to-curious-blue-light text-primary font-semibold rounded-full hover:scale-105 transform transition-all duration-300 shadow-lg">
+                        <button className="px-6 py-3 bg-curious-blue text-dark font-semibold rounded-full hover:scale-105 transform transition-all duration-300 shadow-lg font-sans">
                             Start Trading
                         </button>
                     </div>
@@ -168,7 +168,7 @@ export default function Contact() {
 
                         <div className="space-y-4">
                             <div className="flex items-center space-x-3">
-                                <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
+                                <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
                                     <svg
                                         className="w-5 h-5 text-curious-blue"
                                         fill="none"
@@ -189,7 +189,7 @@ export default function Contact() {
                             </div>
 
                             <div className="flex items-center space-x-3">
-                                <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
+                                <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
                                     <svg
                                         className="w-5 h-5 text-curious-blue"
                                         fill="none"
@@ -216,7 +216,7 @@ export default function Contact() {
                             </div>
 
                             <div className="flex items-center space-x-3">
-                                <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
+                                <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
                                     <svg
                                         className="w-5 h-5 text-curious-blue"
                                         fill="none"
@@ -295,7 +295,7 @@ export default function Contact() {
                             <button
                                 type="submit"
                                 disabled={formStatus.isSubmitting}
-                                className={`w-full px-6 py-3 bg-gradient-to-r from-curious-blue via-curious-blue-light to-curious-blue-lighter text-primary font-semibold rounded-xl shadow-lg transition-all duration-300 ${
+                                className={`w-full px-6 py-3 bg-curious-blue text-dark font-semibold rounded-full shadow-lg transition-all duration-300 font-sans ${
                                     formStatus.isSubmitting
                                         ? 'opacity-75 cursor-not-allowed'
                                         : 'hover:scale-105 transform animate-glow'

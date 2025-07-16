@@ -103,7 +103,7 @@ export default function GTM() {
                     </h3>
                     <div className="grid md:grid-cols-3 gap-8">
                         <div className="text-center">
-                            <div className="w-16 h-16 bg-gradient-to-r from-curious-blue to-curious-blue-light rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <div className="w-16 h-16 bg-gradient-to-r from-curious-blue to-curious-blue-light rounded-full flex items-center justify-center mx-auto mb-6">
                                 <span className="text-2xl font-bold text-primary">
                                     1
                                 </span>
@@ -118,7 +118,7 @@ export default function GTM() {
                             </p>
                         </div>
                         <div className="text-center">
-                            <div className="w-16 h-16 bg-gradient-to-r from-curious-blue-light to-curious-blue-lighter rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <div className="w-16 h-16 bg-gradient-to-r from-curious-blue-light to-curious-blue-lighter rounded-full flex items-center justify-center mx-auto mb-6">
                                 <span className="text-2xl font-bold text-primary">
                                     2
                                 </span>
@@ -132,7 +132,7 @@ export default function GTM() {
                             </p>
                         </div>
                         <div className="text-center">
-                            <div className="w-16 h-16 bg-gradient-to-r from-curious-blue-lighter to-curious-blue rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <div className="w-16 h-16 bg-gradient-to-r from-curious-blue-lighter to-curious-blue rounded-full flex items-center justify-center mx-auto mb-6">
                                 <span className="text-2xl font-bold text-primary">
                                     3
                                 </span>

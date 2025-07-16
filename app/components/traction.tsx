@@ -30,7 +30,7 @@ export default function Traction() {
                                 className="object-cover scale-150"
                             />
                         </div>
-                        <p className="text-sm text-gray-dark">
+                        <p className="font-family-sans !mb-0">
                             Base asset for all trading pairs
                         </p>
                     </div>
@@ -45,7 +45,7 @@ export default function Traction() {
                                 className="object-contain"
                             />
                         </div>
-                        <p className="text-sm text-gray-dark">
+                        <p className="font-family-sans !mb-0">
                             Dedicated stablecoin chain
                         </p>
                     </div>
@@ -60,7 +60,7 @@ export default function Traction() {
                                 className="object-contain"
                             />
                         </div>
-                        <p className="text-sm text-gray-dark">
+                        <p className="font-family-sans !mb-0">
                             eHKD consortium partner
                         </p>
                     </div>
@@ -75,7 +75,7 @@ export default function Traction() {
                                 className="object-contain"
                             />
                         </div>
-                        <p className="text-sm text-gray-dark">
+                        <p className="font-family-sans !mb-0">
                             UK/Europe liquidity platform
                         </p>
                     </div>

@@ -144,24 +144,21 @@ export default function Nav() {
     return (
         <>
             <nav className="fixed top-0 w-full z-50 glass-effect">
-                <div className="max-w-7xl mx-auto px-6 py-4">
+                <div className="max-w-7xl mx-auto px-6">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-3">
-                            <div className="w-12 h-8 flex items-center justify-center">
+                            <div className="w-48 flex items-center justify-center mr-2">
                                 <Image
-                                    src="/superset_white.png"
+                                    src="/suserset_horizontal_dark.png"
                                     alt="Superset Logo"
                                     className="w-full h-full object-contain"
-                                    width={48}
-                                    height={32}
+                                    width={895}
+                                    height={656}
                                 />
                             </div>
-                            <span className="text-xl font-bold monochrome-text">
-                                Superset
-                            </span>
                         </div>
 
-                        <div className="hidden lg:flex items-center space-x-8 relative">
+                        <div className="hidden lg:flex items-center space-x-8 relative py-4">
                             <a
                                 href="#problem"
                                 className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative"
@@ -242,7 +239,7 @@ export default function Nav() {
 
                             <div
                                 id="nav-underscore"
-                                className="absolute -bottom-2 h-0.5 bg-gradient-to-r from-curious-blue via-curious-blue-light to-curious-blue-lighter transition-all duration-300 ease-out"
+                                className="absolute -bottom-0 h-0.5 bg-gradient-to-r from-curious-blue via-curious-blue-light to-curious-blue-lighter transition-all duration-300 ease-out"
                                 style={{
                                     width: 0,
                                     left: 0,
