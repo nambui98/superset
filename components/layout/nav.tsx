@@ -1,13 +1,37 @@
 'use client';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { cn } from '@/lib/utils';
 
 gsap.registerPlugin(ScrollToPlugin);
 
 export default function Nav() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const navRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        // Handle clicking outside to close mobile menu
+        function handleClickOutside(event: MouseEvent) {
+            if (
+                navRef.current &&
+                !navRef.current.contains(event.target as Node)
+            ) {
+                setIsMobileMenuOpen(false);
+            }
+        }
+
+        // Add event listener when mobile menu is open
+        if (isMobileMenuOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        }
+
+        // Cleanup event listener
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isMobileMenuOpen]);
 
     useEffect(() => {
         // Smooth scroll function
@@ -152,86 +176,94 @@ export default function Nav() {
                                     src="/suserset_horizontal_dark.png"
                                     alt="Superset Logo"
                                     className="w-full h-full object-contain"
-                                    width={895}
-                                    height={656}
+                                    width={192}
+                                    height={56}
                                 />
                             </div>
                         </div>
 
-                        <div className="hidden lg:flex items-center space-x-8 relative py-4">
+                        <div
+                            className={cn(
+                                'hidden lg:flex items-center space-x-8 relative py-4 transition-all duration-300 ease-out text-mono',
+                                isMobileMenuOpen
+                                    ? 'block fixed inset-x-0 top-14 bg-white/95 backdrop-blur-lg p-6 lg:hidden border-t border-accent z-40 transition-all duration-300 ease-out shadow-sm space-y-4'
+                                    : 'hidden',
+                            )}
+                            ref={navRef}
+                        >
                             <a
                                 href="#problem"
-                                className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative"
+                                className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block lg:inline-block"
                                 data-section="problem"
                             >
                                 Problem
                             </a>
                             <a
                                 href="#solution"
-                                className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative"
+                                className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block lg:inline-block"
                                 data-section="solution"
                             >
                                 Solution
                             </a>
                             <a
                                 href="#competitive"
-                                className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative"
+                                className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block lg:inline-block"
                                 data-section="competitive"
                             >
                                 Competitive
                             </a>
                             <a
                                 href="#products"
-                                className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative"
+                                className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block lg:inline-block"
                                 data-section="products"
                             >
                                 Products
                             </a>
                             <a
                                 href="#architecture"
-                                className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative"
+                                className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block lg:inline-block"
                                 data-section="architecture"
                             >
                                 Architecture
                             </a>
                             <a
                                 href="#business-model"
-                                className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative"
+                                className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block lg:inline-block"
                                 data-section="business-model"
                             >
                                 Business
                             </a>
                             <a
                                 href="#traction"
-                                className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative"
+                                className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block lg:inline-block"
                                 data-section="traction"
                             >
                                 Traction
                             </a>
                             <a
                                 href="#gtm"
-                                className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative"
+                                className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block lg:inline-block"
                                 data-section="gtm"
                             >
                                 GTM
                             </a>
                             <a
                                 href="#team"
-                                className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative"
+                                className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block lg:inline-block"
                                 data-section="team"
                             >
                                 Team
                             </a>
                             <a
                                 href="#faq"
-                                className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative"
+                                className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block lg:inline-block"
                                 data-section="faq"
                             >
                                 FAQ
                             </a>
                             <a
                                 href="#contact"
-                                className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative"
+                                className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block lg:inline-block"
                                 data-section="contact"
                             >
                                 Contact
@@ -272,78 +304,103 @@ export default function Nav() {
             </nav>
 
             {/* Mobile Menu */}
-            {isMobileMenuOpen && (
-                <div className="fixed inset-x-0 top-16 bg-white/95 backdrop-blur-lg p-6 lg:hidden border-t border-accent z-40">
-                    <div className="space-y-4">
-                        <a
-                            href="#problem"
-                            className="block text-gray-dark hover:text-curious-blue transition-colors py-2"
-                        >
-                            Problem
-                        </a>
-                        <a
-                            href="#solution"
-                            className="block text-gray-dark hover:text-curious-blue transition-colors py-2"
-                        >
-                            Solution
-                        </a>
-                        <a
-                            href="#competitive"
-                            className="block text-gray-dark hover:text-curious-blue transition-colors py-2"
-                        >
-                            Competitive
-                        </a>
-                        <a
-                            href="#products"
-                            className="block text-gray-dark hover:text-curious-blue transition-colors py-2"
-                        >
-                            Products
-                        </a>
-                        <a
-                            href="#architecture"
-                            className="block text-gray-dark hover:text-curious-blue transition-colors py-2"
-                        >
-                            Architecture
-                        </a>
-                        <a
-                            href="#business-model"
-                            className="block text-gray-dark hover:text-curious-blue transition-colors py-2"
-                        >
-                            Business
-                        </a>
-                        <a
-                            href="#traction"
-                            className="block text-gray-dark hover:text-curious-blue transition-colors py-2"
-                        >
-                            Traction
-                        </a>
-                        <a
-                            href="#gtm"
-                            className="block text-gray-dark hover:text-curious-blue transition-colors py-2"
-                        >
-                            GTM
-                        </a>
-                        <a
-                            href="#team"
-                            className="block text-gray-dark hover:text-curious-blue transition-colors py-2"
-                        >
-                            Team
-                        </a>
-                        <a
-                            href="#faq"
-                            className="block text-gray-dark hover:text-curious-blue transition-colors py-2"
-                        >
-                            FAQ
-                        </a>
-                        <a
-                            href="#contact"
-                            className="block text-gray-dark hover:text-curious-blue transition-colors py-2"
-                        >
-                            Contact
-                        </a>
-                    </div>
+            {/* <div
+                className={cn(
+                    'fixed inset-x-0 top-14 bg-white/95 backdrop-blur-lg p-6 lg:hidden border-t border-accent z-40 transition-all duration-300 ease-out shadow-sm',
+                    isMobileMenuOpen ? 'block' : 'hidden',
+                )}
+            >
+                <div className="space-y-4">
+                    <a
+                        href="#problem"
+                        className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block"
+                        data-section="problem"
+                    >
+                        Problem
+                    </a>
+                    <a
+                        href="#solution"
+                        className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block"
+                        data-section="solution"
+                    >
+                        Solution
+                    </a>
+                    <a
+                        href="#competitive"
+                        className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block"
+                        data-section="competitive"
+                    >
+                        Competitive
+                    </a>
+                    <a
+                        href="#products"
+                        className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block"
+                        data-section="products"
+                    >
+                        Products
+                    </a>
+                    <a
+                        href="#architecture"
+                        className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block"
+                        data-section="architecture"
+                    >
+                        Architecture
+                    </a>
+                    <a
+                        href="#business-model"
+                        className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block"
+                        data-section="business-model"
+                    >
+                        Business
+                    </a>
+                    <a
+                        href="#traction"
+                        className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block"
+                        data-section="traction"
+                    >
+                        Traction
+                    </a>
+                    <a
+                        href="#gtm"
+                        className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block"
+                        data-section="gtm"
+                    >
+                        GTM
+                    </a>
+                    <a
+                        href="#team"
+                        className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block"
+                        data-section="team"
+                    >
+                        Team
+                    </a>
+                    <a
+                        href="#faq"
+                        className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block"
+                        data-section="faq"
+                    >
+                        FAQ
+                    </a>
+                    <a
+                        href="#contact"
+                        className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block"
+                        data-section="contact"
+                    >
+                        Contact
+                    </a>
+
+                    <div
+                        id="nav-underscore"
+                        className="absolute -bottom-0 h-0.5 bg-gradient-to-r from-curious-blue via-curious-blue-light to-curious-blue-lighter transition-all duration-300 ease-out"
+                        style={{
+                            width: 0,
+                            left: 0,
+                            margin: 0,
+                            padding: 0,
+                        }}
+                    ></div>
                 </div>
-            )}
+            </div> */}
         </>
     );
 }

@@ -570,21 +570,3 @@ input[type='button'] {
     line-height: 1.4;
     cursor: pointer;
 }
-
-/* Ensure all button text uses Inter */
-button *,
-.btn *,
-[role='button'] *,
-input[type='submit'] *,
-input[type='button'] * {
-    font-family: var(--font-inter), system-ui, sans-serif !important;
-}
-
-/* Button hover and focus states maintain Inter font */
-button:hover,
-.btn:hover,
-[role='button']:hover,
-input[type='submit']:hover,
-input[type='button']:hover {
-    font-family: var(--font-inter), system-ui, sans-serif !important;
-}
