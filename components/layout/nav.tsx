@@ -4,34 +4,17 @@ import { useEffect, useState, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { cn } from '@/lib/utils';
+import { useClickAway } from '@uidotdev/usehooks';
 
 gsap.registerPlugin(ScrollToPlugin);
 
 export default function Nav() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const navRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        // Handle clicking outside to close mobile menu
-        function handleClickOutside(event: MouseEvent) {
-            if (
-                navRef.current &&
-                !navRef.current.contains(event.target as Node)
-            ) {
-                setIsMobileMenuOpen(false);
-            }
-        }
-
-        // Add event listener when mobile menu is open
-        if (isMobileMenuOpen) {
-            document.addEventListener('mousedown', handleClickOutside);
-        }
-
-        // Cleanup event listener
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, [isMobileMenuOpen]);
+    // Use click outside hook for mobile menu
+    const navRef = useClickAway<HTMLDivElement>(() => {
+        setIsMobileMenuOpen(false);
+    });
 
     useEffect(() => {
         // Smooth scroll function
@@ -167,7 +150,7 @@ export default function Nav() {
 
     return (
         <>
-            <nav className="fixed top-0 w-full z-50 glass-effect">
+            <nav className="fixed top-0 w-full z-50 glass-effect" ref={navRef}>
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-3">
@@ -184,12 +167,11 @@ export default function Nav() {
 
                         <div
                             className={cn(
-                                'hidden lg:flex items-center space-x-8 relative py-4 transition-all duration-300 ease-out text-mono',
+                                'hidden  min-[1341px]:flex space-x-4 space-y-4 lg:space-y-0 min-[1341px]:space-x-8 items-center relative py-4 transition-all duration-300 ease-out text-mono',
                                 isMobileMenuOpen
-                                    ? 'block fixed inset-x-0 top-14 bg-white/95 backdrop-blur-lg p-6 lg:hidden border-t border-accent z-40 transition-all duration-300 ease-out shadow-sm space-y-4'
+                                    ? 'block fixed inset-x-0 top-14 bg-white/95 backdrop-blur-lg p-6 min-[1341px]:hidden border-t border-accent z-40 transition-all duration-300 ease-out shadow-sm'
                                     : 'hidden',
                             )}
-                            ref={navRef}
                         >
                             <a
                                 href="#problem"
@@ -282,125 +264,42 @@ export default function Nav() {
                         </div>
 
                         <button
-                            className="lg:hidden text-dark"
+                            className="max-[1340px]:block hidden text-dark"
                             onClick={toggleMobileMenu}
                         >
-                            <svg
-                                className="w-6 h-6"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M4 6h16M4 12h16M4 18h16"
-                                ></path>
-                            </svg>
+                            {isMobileMenuOpen ? (
+                                <svg
+                                    className="w-6 h-6"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M6 18L18 6M6 6l12 12"
+                                    ></path>
+                                </svg>
+                            ) : (
+                                <svg
+                                    className="w-6 h-6"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M4 6h16M4 12h16M4 18h16"
+                                    ></path>
+                                </svg>
+                            )}
                         </button>
                     </div>
                 </div>
             </nav>
-
-            {/* Mobile Menu */}
-            {/* <div
-                className={cn(
-                    'fixed inset-x-0 top-14 bg-white/95 backdrop-blur-lg p-6 lg:hidden border-t border-accent z-40 transition-all duration-300 ease-out shadow-sm',
-                    isMobileMenuOpen ? 'block' : 'hidden',
-                )}
-            >
-                <div className="space-y-4">
-                    <a
-                        href="#problem"
-                        className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block"
-                        data-section="problem"
-                    >
-                        Problem
-                    </a>
-                    <a
-                        href="#solution"
-                        className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block"
-                        data-section="solution"
-                    >
-                        Solution
-                    </a>
-                    <a
-                        href="#competitive"
-                        className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block"
-                        data-section="competitive"
-                    >
-                        Competitive
-                    </a>
-                    <a
-                        href="#products"
-                        className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block"
-                        data-section="products"
-                    >
-                        Products
-                    </a>
-                    <a
-                        href="#architecture"
-                        className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block"
-                        data-section="architecture"
-                    >
-                        Architecture
-                    </a>
-                    <a
-                        href="#business-model"
-                        className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block"
-                        data-section="business-model"
-                    >
-                        Business
-                    </a>
-                    <a
-                        href="#traction"
-                        className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block"
-                        data-section="traction"
-                    >
-                        Traction
-                    </a>
-                    <a
-                        href="#gtm"
-                        className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block"
-                        data-section="gtm"
-                    >
-                        GTM
-                    </a>
-                    <a
-                        href="#team"
-                        className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block"
-                        data-section="team"
-                    >
-                        Team
-                    </a>
-                    <a
-                        href="#faq"
-                        className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block"
-                        data-section="faq"
-                    >
-                        FAQ
-                    </a>
-                    <a
-                        href="#contact"
-                        className="nav-link text-gray-dark hover:text-curious-blue transition-colors font-medium relative block"
-                        data-section="contact"
-                    >
-                        Contact
-                    </a>
-
-                    <div
-                        id="nav-underscore"
-                        className="absolute -bottom-0 h-0.5 bg-gradient-to-r from-curious-blue via-curious-blue-light to-curious-blue-lighter transition-all duration-300 ease-out"
-                        style={{
-                            width: 0,
-                            left: 0,
-                            margin: 0,
-                            padding: 0,
-                        }}
-                    ></div>
-                </div>
-            </div> */}
         </>
     );
 }
